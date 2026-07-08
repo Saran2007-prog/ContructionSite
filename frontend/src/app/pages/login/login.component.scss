@@ -1,0 +1,426 @@
+.split-viewport {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background-color: #0b0f19;
+}
+
+/* -------------------------------------------------------------
+ * LEFT PANE: GREEN BRANDING PANEL
+ * ------------------------------------------------------------- */
+.green-pane {
+  background: linear-gradient(180deg, #00b050 0%, #00853c 100%);
+  color: #ffffff;
+  z-index: 10;
+  position: relative;
+  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.25);
+  height: 100%;
+}
+
+.brand-header {
+  .icon-container {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+  }
+
+  .brand-logo {
+    font-size: 1.4rem;
+    color: #ffffff;
+  }
+
+  .brand-text {
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+}
+
+.brand-hero {
+  .brand-headline {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+
+  .brand-subhead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.brand-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .stat-number {
+    font-size: 1.85rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+}
+
+/* -------------------------------------------------------------
+ * RIGHT PANE: MAIN INTERACTIVE BANNER
+ * ------------------------------------------------------------- */
+.right-pane {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pane-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(15, 23, 42, 0.75) 0%, rgba(11, 15, 23, 0.96) 90%);
+  z-index: 1;
+}
+
+.pane-header {
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-links {
+  .nav-item-link {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    &.active {
+      color: #ffffff;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #00b050;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.auth-buttons {
+  .btn-signin {
+    background: #00b050;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 176, 80, 0.2);
+
+    &:hover, &.btn-active {
+      background: #00d661;
+      transform: translateY(-1px);
+    }
+  }
+
+  .btn-signup-outline {
+    background: transparent;
+    border: 1px solid #00b050;
+    color: #00b050;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+
+    &:hover, &.btn-active {
+      background: rgba(0, 176, 80, 0.08);
+      color: #00d661;
+      border-color: #00d661;
+    }
+  }
+}
+
+.pane-content-wrapper {
+  flex-grow: 1;
+  position: relative;
+  z-index: 5;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* -------------------------------------------------------------
+ * VERTICAL SCROLL LAYOUT
+ * ------------------------------------------------------------- */
+.landing-scroll-pane {
+  scroll-snap-type: y mandatory;
+  height: calc(100vh - 100px);
+  overflow-y: scroll;
+  padding-right: 10px;
+
+  /* Hide scrollbar for clean presentation */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.01);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+  }
+}
+
+.scroll-section {
+  min-height: calc(100vh - 100px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 4rem 0;
+  position: relative;
+}
+
+.section-content {
+  max-width: 650px;
+  color: #ffffff;
+  margin: auto 0;
+}
+
+.pre-headline {
+  color: #00b050;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+.landing-heading {
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.landing-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #94a3b8 !important;
+}
+
+.btn-signin {
+  background: #00b050;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 176, 80, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #00d661;
+    transform: translateX(4px);
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* -------------------------------------------------------------
+ * GLASS FORM CARDS
+ * ------------------------------------------------------------- */
+.login-view {
+  position: relative;
+  z-index: 10;
+}
+
+.login-glass-card {
+  background: rgba(30, 41, 59, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: #f1f5f9;
+
+  h3 {
+    letter-spacing: -0.5px;
+  }
+}
+
+.form-floating {
+  input {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+    border-radius: 10px;
+    font-size: 0.95rem;
+
+    &:focus {
+      border-color: #00b050;
+      box-shadow: 0 0 0 3px rgba(0, 176, 80, 0.15);
+      background-color: rgba(15, 23, 42, 0.85) !important;
+    }
+  }
+
+  label {
+    color: #94a3b8;
+  }
+}
+
+.dark-input-select {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  
+  &:focus {
+    border-color: #00b050;
+    box-shadow: 0 0 0 3px rgba(0, 176, 80, 0.15);
+    background-color: rgba(15, 23, 42, 0.85) !important;
+    color: #f1f5f9;
+  }
+  
+  option {
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+}
+
+.btn-green-action {
+  background: linear-gradient(135deg, #00b050 0%, #008f3f 100%);
+  border: none;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0, 176, 80, 0.3);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 176, 80, 0.4);
+    background: linear-gradient(135deg, #00d661 0%, #00a84a 100%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.btn-outline-demo {
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 176, 80, 0.08);
+    border-color: rgba(0, 176, 80, 0.3);
+    transform: scale(1.02);
+    
+    .text-white {
+      color: #00d661 !important;
+    }
+  }
+}
+
+.alert-danger-custom {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  border-radius: 10px;
+}
+
+.text-green {
+  color: #00b050 !important;
+  font-weight: 600;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Animations */
+.animate-fade {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.fs-8 {
+  font-size: 0.85rem;
+}
+
+.fs-9 {
+  font-size: 0.78rem;
+}
+
+.fs-10 {
+  font-size: 0.7rem;
+}

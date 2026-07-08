@@ -1,0 +1,292 @@
+<div class="split-viewport">
+  <div class="row g-0 h-100">
+    <!-- Left Pane (Green Branding Panel) -->
+    <div class="col-lg-5 col-xl-4 green-pane p-5 d-flex flex-column justify-content-between">
+      <div class="brand-header d-flex align-items-center">
+        <div class="icon-container me-3 d-flex align-items-center justify-content-center">
+          <i class="bi bi-cone-striped brand-logo"></i>
+        </div>
+        <span class="brand-text">BuildTrack</span>
+      </div>
+
+      <div class="brand-hero my-5">
+        <h1 class="brand-headline mb-4">Manage every project.<br>On time. On budget.</h1>
+        <p class="brand-subhead text-white-50">
+          From groundbreaking to handover — BuildTrack gives your team a single source of truth for schedules, budgets, and site documentation.
+        </p>
+      </div>
+
+      <div class="brand-stats">
+        <div class="stat-item mb-4">
+          <h2 class="stat-number">2,400+</h2>
+          <p class="stat-label">Active projects</p>
+        </div>
+        <div class="stat-item mb-4">
+          <h2 class="stat-number">98%</h2>
+          <p class="stat-label">On-time delivery rate</p>
+        </div>
+        <div class="stat-item mb-0">
+          <h2 class="stat-number">340+</h2>
+          <p class="stat-label">Construction firms</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Pane (Main Interactivity Hub) -->
+    <div class="col-lg-7 col-xl-8 right-pane">
+      <div class="pane-overlay"></div>
+      
+      <!-- Top Navigation Header -->
+      <header class="pane-header d-flex justify-content-between align-items-center px-5 py-4">
+        <nav class="nav-links d-flex gap-4">
+          <button type="button" class="btn nav-item-link" [class.active]="activeTab === 'home'" (click)="setTab('home')">Home</button>
+          <button type="button" class="btn nav-item-link" [class.active]="activeTab === 'about'" (click)="setTab('about')">About</button>
+          <button type="button" class="btn nav-item-link" [class.active]="activeTab === 'contact'" (click)="setTab('contact')">Contact</button>
+        </nav>
+        
+        <div class="auth-buttons d-flex gap-3">
+          <button type="button" class="btn btn-signin" [class.btn-active]="activeTab === 'login'" (click)="setTab('login')">Sign In</button>
+          <button type="button" class="btn btn-signup-outline" [class.btn-active]="activeTab === 'register'" (click)="setTab('register')">Sign Up</button>
+        </div>
+      </header>
+
+      <!-- Content Area Switcher -->
+      <div class="pane-content-wrapper d-flex align-items-start justify-content-center px-5 py-3">
+        
+        <!-- Scrollable Landing Pane (Home, About, Contact stacked) -->
+        <div class="landing-scroll-pane w-100" *ngIf="activeTab === 'home' || activeTab === 'about' || activeTab === 'contact'">
+          
+          <!-- Home Section -->
+          <section id="home" class="scroll-section d-flex flex-column justify-content-center">
+            <div class="section-content animate-fade">
+              <span class="pre-headline text-uppercase fw-semibold tracking-wider">Construction & Project Management</span>
+              <h1 class="landing-heading my-3">Best Works</h1>
+              <p class="landing-text text-muted mb-4">
+                Delivering landmark structures with precision, integrity, and craft — from foundation to finish.
+              </p>
+              <button type="button" class="btn btn-signin px-4 py-3 fs-6" (click)="setTab('login')">
+                Get Started <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+            <div class="scroll-indicator text-muted d-flex align-items-center justify-content-center mt-5">
+              <span>Scroll down to explore</span> <i class="bi bi-chevron-double-down ms-2 animate-bounce"></i>
+            </div>
+          </section>
+
+          <!-- About Section -->
+          <section id="about" class="scroll-section d-flex flex-column justify-content-center">
+            <div class="section-content animate-fade">
+              <span class="pre-headline text-uppercase fw-semibold tracking-wider text-info">About Our Platform</span>
+              <h1 class="landing-heading my-3">Connected Sites</h1>
+              <p class="landing-text text-muted mb-0">
+                BuildTrack links administrators, supervisors, contractors, and clients into a singular real-time workflow. Our secure, role-restricted dashboard infrastructure provides auditable verification for progress checks, attendance logging, and procurement tracking.
+              </p>
+            </div>
+          </section>
+
+          <!-- Contact Section -->
+          <section id="contact" class="scroll-section d-flex flex-column justify-content-center">
+            <div class="section-content animate-fade">
+              <span class="pre-headline text-uppercase fw-semibold tracking-wider text-warning">Get In Touch</span>
+              <h1 class="landing-heading my-3">Contact Support</h1>
+              <p class="landing-text text-muted mb-4">
+                Need technical integrations or support with your enterprise configuration? Connect directly with our system administrators.
+              </p>
+              <a href="mailto:support&#64;buildtrack.com" class="btn btn-signup-outline px-4 py-3 text-decoration-none d-inline-block">
+                <i class="bi bi-envelope-fill me-2"></i>Email Support
+              </a>
+            </div>
+          </section>
+          
+        </div>
+
+        <!-- Sign In Form View -->
+        <div class="login-view animate-fade w-100" style="max-width: 480px; margin-top: 2rem;" *ngIf="activeTab === 'login'">
+          <div class="card login-glass-card shadow-lg border-0">
+            <div class="card-body p-4">
+              
+              <div class="text-center mb-4">
+                <h3 class="fw-bold mb-1">Sign In</h3>
+                <p class="text-muted fs-8 mb-0">Welcome back! Please enter credentials to proceed</p>
+              </div>
+
+              <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                
+                <div *ngIf="errorMessage" class="alert alert-danger-custom d-flex align-items-center p-3 mb-3" role="alert">
+                  <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                  <div class="fs-8">{{ errorMessage }}</div>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input 
+                    type="email" 
+                    class="form-control" 
+                    id="email" 
+                    name="email" 
+                    placeholder="name&#64;example.com" 
+                    [(ngModel)]="email" 
+                    required>
+                  <label for="email"><i class="bi bi-envelope me-2"></i>Email address</label>
+                </div>
+
+                <div class="form-floating mb-4">
+                  <input 
+                    type="password" 
+                    class="form-control" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    [(ngModel)]="password" 
+                    required>
+                  <label for="password"><i class="bi bi-lock me-2"></i>Password</label>
+                </div>
+
+                <button 
+                  type="submit" 
+                  class="btn btn-green-action w-100 py-3 rounded-3 mb-3 fw-bold text-uppercase tracking-wider" 
+                  [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  {{ loading ? 'Authenticating...' : 'Sign In' }}
+                </button>
+
+                <div class="text-center mt-2 fs-8 text-muted">
+                  Don't have an account? <a (click)="setTab('register')" class="text-green cursor-pointer text-decoration-none">Sign Up</a>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Sign Up / Registration View (Roles selection ONLY visible here) -->
+        <div class="login-view animate-fade w-100" style="max-width: 520px; margin-top: 1rem;" *ngIf="activeTab === 'register'">
+          <div class="card login-glass-card shadow-lg border-0">
+            <div class="card-body p-4">
+              
+              <div class="text-center mb-4">
+                <h3 class="fw-bold mb-1">Create Account</h3>
+                <p class="text-muted fs-8 mb-0">Register a new profile and select your project role</p>
+              </div>
+
+              <form (ngSubmit)="onSignUp()" #signUpForm="ngForm">
+                
+                <div *ngIf="signUpSuccessMessage" class="alert alert-success d-flex align-items-center p-3 mb-3" role="alert">
+                  <i class="bi bi-check-circle-fill me-2"></i>
+                  <div class="fs-8">{{ signUpSuccessMessage }}</div>
+                </div>
+
+                <div *ngIf="signUpErrorMessage" class="alert alert-danger-custom d-flex align-items-center p-3 mb-3" role="alert">
+                  <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                  <div class="fs-8">{{ signUpErrorMessage }}</div>
+                </div>
+
+                <!-- Profile Names -->
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="signUpFirstName" 
+                        name="signUpFirstName" 
+                        placeholder="John" 
+                        [(ngModel)]="signUpFirstName" 
+                        required>
+                      <label for="signUpFirstName"><i class="bi bi-person me-2"></i>First Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="signUpLastName" 
+                        name="signUpLastName" 
+                        placeholder="Doe" 
+                        [(ngModel)]="signUpLastName" 
+                        required>
+                      <label for="signUpLastName">Last Name</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email address -->
+                <div class="form-floating mb-3">
+                  <input 
+                    type="email" 
+                    class="form-control" 
+                    id="signUpEmail" 
+                    name="signUpEmail" 
+                    placeholder="name&#64;example.com" 
+                    [(ngModel)]="signUpEmail" 
+                    required>
+                  <label for="signUpEmail"><i class="bi bi-envelope me-2"></i>Email address</label>
+                </div>
+
+                <!-- Password -->
+                <div class="form-floating mb-3">
+                  <input 
+                    type="password" 
+                    class="form-control" 
+                    id="signUpPassword" 
+                    name="signUpPassword" 
+                    placeholder="Password" 
+                    [(ngModel)]="signUpPassword" 
+                    required>
+                  <label for="signUpPassword"><i class="bi bi-lock me-2"></i>Password</label>
+                </div>
+
+                <!-- Role Selector (Only Visible in Sign Up Form) -->
+                <div class="form-floating mb-3">
+                  <select 
+                    class="form-select dark-input-select" 
+                    id="signUpRole" 
+                    name="signUpRole" 
+                    [(ngModel)]="signUpRole" 
+                    required>
+                    <option value="Administrator">Administrator</option>
+                    <option value="Project_Manager">Project Manager</option>
+                    <option value="Site_Engineer">Site Engineer</option>
+                    <option value="Contractor">Contractor</option>
+                    <option value="Client">Client</option>
+                    <option value="Worker">Worker</option>
+                  </select>
+                  <label for="signUpRole"><i class="bi bi-shield-lock me-2"></i>Select Portal Role</label>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-floating mb-4">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="signUpPhone" 
+                    name="signUpPhone" 
+                    placeholder="+1 (555) 000-0000" 
+                    [(ngModel)]="signUpPhone">
+                  <label for="signUpPhone"><i class="bi bi-telephone me-2"></i>Phone Number (Optional)</label>
+                </div>
+
+                <button 
+                  type="submit" 
+                  class="btn btn-green-action w-100 py-3 rounded-3 mb-3 fw-bold text-uppercase tracking-wider" 
+                  [disabled]="signUpLoading || !signUpForm.form.valid">
+                  <span *ngIf="signUpLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  {{ signUpLoading ? 'Registering...' : 'Sign Up' }}
+                </button>
+
+                <div class="text-center mt-1 fs-8 text-muted">
+                  Already have an account? <a (click)="setTab('login')" class="text-green cursor-pointer text-decoration-none">Sign In</a>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

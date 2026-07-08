@@ -1,0 +1,390 @@
+<div class="dashboard-container d-flex">
+  <!-- Left Sidebar (Dark Theme) -->
+  <aside class="sidebar d-flex flex-column justify-content-between">
+    <div>
+      <div class="sidebar-brand d-flex align-items-center mb-4">
+        <div class="brand-logo-box me-2 d-flex align-items-center justify-content-center">
+          <i class="bi bi-stack"></i>
+        </div>
+        <span class="brand-text">BuildTrack</span>
+      </div>
+
+      <div class="sidebar-section-label">MAIN MENU</div>
+      <nav class="sidebar-nav">
+        <a class="nav-link active d-flex align-items-center justify-content-between">
+          <span><i class="bi bi-grid-fill me-3"></i>Dashboard</span>
+          <span class="active-dot"></span>
+        </a>
+        <a class="nav-link d-flex align-items-center"><i class="bi bi-people-fill me-3"></i>User Management</a>
+        <a class="nav-link d-flex align-items-center"><i class="bi bi-folder-fill me-3"></i>Projects</a>
+        <a class="nav-link d-flex align-items-center"><i class="bi bi-graph-up me-3"></i>Analytics</a>
+        <a class="nav-link d-flex align-items-center"><i class="bi bi-file-earmark-bar-graph-fill me-3"></i>Reports</a>
+        <a class="nav-link d-flex align-items-center"><i class="bi bi-clock-history me-3"></i>Activity Logs</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <span class="version-label">PLATFORM VERSION</span>
+      <h6 class="version-number mb-0">BuildTrack v3.4.1</h6>
+    </div>
+  </aside>
+
+  <!-- Right Content Area (Light Theme) -->
+  <main class="main-content flex-grow-1">
+    <!-- Top Navbar -->
+    <header class="navbar-header d-flex justify-content-between align-items-center px-4 py-3">
+      <div>
+        <h2 class="welcome-title mb-0">Administrator Dashboard</h2>
+        <span class="text-muted fs-8">Welcome back — here's what's happening today.</span>
+      </div>
+      
+      <div class="navbar-actions d-flex align-items-center gap-3">
+        <div class="search-box position-relative">
+          <i class="bi bi-search search-icon"></i>
+          <input type="text" class="form-control form-control-sm" placeholder="Search projects, users...">
+        </div>
+        
+        <div class="notification-bell position-relative">
+          <i class="bi bi-bell-fill fs-5"></i>
+          <span class="notification-badge">3</span>
+        </div>
+        
+        <div class="profile-dropdown d-flex align-items-center gap-2 cursor-pointer" (click)="logout()">
+          <div class="avatar-box d-flex align-items-center justify-content-center">
+            AU
+          </div>
+          <div class="profile-meta d-none d-md-block">
+            <span class="profile-user-name d-block">Admin User</span>
+          </div>
+          <i class="bi bi-chevron-down fs-9 text-muted"></i>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-body p-4">
+      
+      <!-- Stats Summary Row -->
+      <section class="row g-4 mb-4">
+        <!-- Total Users -->
+        <div class="col-md-3">
+          <div class="card stat-card border-0 shadow-sm p-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <span class="stat-title text-muted text-uppercase">Total Users</span>
+                <h2 class="stat-number my-1">4,821</h2>
+                <div class="stat-trend d-flex align-items-center text-success fs-8">
+                  <i class="bi bi-arrow-up-right me-1"></i>
+                  <span>+12.4% from last month</span>
+                </div>
+                <div class="trending-badge text-success mt-2">
+                  <i class="bi bi-arrow-up me-1"></i> Trending up
+                </div>
+              </div>
+              <div class="stat-icon-wrapper user-icon">
+                <i class="bi bi-people-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Projects -->
+        <div class="col-md-3">
+          <div class="card stat-card border-0 shadow-sm p-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <span class="stat-title text-muted text-uppercase">Active Projects</span>
+                <h2 class="stat-number my-1">138</h2>
+                <div class="stat-trend d-flex align-items-center text-success fs-8">
+                  <span class="dot-green me-1"></span>
+                  <span>23 added this quarter</span>
+                </div>
+                <div class="trending-badge text-success mt-2">
+                  <i class="bi bi-arrow-up me-1"></i> Trending up
+                </div>
+              </div>
+              <div class="stat-icon-wrapper project-icon">
+                <i class="bi bi-folder-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Budget -->
+        <div class="col-md-3">
+          <div class="card stat-card border-0 shadow-sm p-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <span class="stat-title text-muted text-uppercase">Total Budget</span>
+                <h2 class="stat-number my-1">$94.7M</h2>
+                <div class="stat-trend d-flex align-items-center text-muted fs-8">
+                  <span class="dot-blue me-1"></span>
+                  <span>$6.2M allocated this week</span>
+                </div>
+                <div class="trending-badge text-muted mt-2">
+                  <i class="bi bi-dash me-1"></i> Stable
+                </div>
+              </div>
+              <div class="stat-icon-wrapper budget-icon">
+                <i class="bi bi-currency-dollar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- System Alerts -->
+        <div class="col-md-3">
+          <div class="card stat-card border-0 shadow-sm p-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <span class="stat-title text-muted text-uppercase">System Alerts</span>
+                <h2 class="stat-number my-1 text-danger">7</h2>
+                <div class="stat-trend d-flex align-items-center text-danger fs-8">
+                  <span class="dot-orange me-1"></span>
+                  <span>3 require immediate action</span>
+                </div>
+                <div class="trending-badge text-danger mt-2">
+                  <i class="bi bi-exclamation-triangle me-1"></i> Needs attention
+                </div>
+              </div>
+              <div class="stat-icon-wrapper alert-icon">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chart & Load Visualization Row -->
+      <section class="row g-4 mb-4">
+        <!-- Projects by Category Bar Chart -->
+        <div class="col-lg-7">
+          <div class="card viz-card border-0 shadow-sm p-4 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h5 class="viz-title mb-0">Projects by Category</h5>
+                <span class="text-muted fs-8">Distribution across project types</span>
+              </div>
+              <span class="badge badge-period">Q2 2026</span>
+            </div>
+
+            <!-- Custom Vertical CSS Bar Chart -->
+            <div class="bar-chart-container d-flex align-items-end justify-content-around my-4">
+              <div class="chart-bar-wrapper text-center">
+                <div class="bar-val text-muted fs-8">52</div>
+                <div class="chart-bar bar-residential" style="height: 120px;"></div>
+                <span class="bar-label d-block mt-2 text-muted fs-8">Residential</span>
+              </div>
+              
+              <div class="chart-bar-wrapper text-center">
+                <div class="bar-val text-muted fs-8">38</div>
+                <div class="chart-bar bar-commercial" style="height: 87px;"></div>
+                <span class="bar-label d-block mt-2 text-muted fs-8">Commercial</span>
+              </div>
+              
+              <div class="chart-bar-wrapper text-center">
+                <div class="bar-val text-muted fs-8">29</div>
+                <div class="chart-bar bar-industrial" style="height: 66px;"></div>
+                <span class="bar-label d-block mt-2 text-muted fs-8">Industrial</span>
+              </div>
+              
+              <div class="chart-bar-wrapper text-center">
+                <div class="bar-val text-muted fs-8">19</div>
+                <div class="chart-bar bar-infrastructure" style="height: 44px;"></div>
+                <span class="bar-label d-block mt-2 text-muted fs-8">Infrastructure</span>
+              </div>
+            </div>
+
+            <!-- Chart Legend -->
+            <div class="chart-legend d-flex justify-content-center gap-4 mt-3">
+              <span class="legend-item"><span class="legend-dot res"></span> Residential (52)</span>
+              <span class="legend-item"><span class="legend-dot com"></span> Commercial (38)</span>
+              <span class="legend-item"><span class="legend-dot ind"></span> Industrial (29)</span>
+              <span class="legend-item"><span class="legend-dot inf"></span> Infrastructure (19)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource & System Load -->
+        <div class="col-lg-5">
+          <div class="card viz-card border-0 shadow-sm p-4 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h5 class="viz-title mb-0">Resource & System Load</h5>
+                <span class="text-muted fs-8">Real-time utilization overview</span>
+              </div>
+              <span class="badge badge-live"><span class="pulse-dot me-1"></span> Live</span>
+            </div>
+
+            <div class="load-bars-list">
+              <!-- Budget Utilization -->
+              <div class="load-item mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1 fs-8">
+                  <span>Overall Budget Utilization <span class="tag-meta text-muted">Finance</span></span>
+                  <span class="fw-bold text-warning">78%</span>
+                </div>
+                <div class="progress custom-progress">
+                  <div class="progress-bar bg-warning" style="width: 78%;"></div>
+                </div>
+              </div>
+
+              <!-- Server CPU Load -->
+              <div class="load-item mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1 fs-8">
+                  <span>Server CPU Load <span class="tag-meta text-muted">Infrastructure</span></span>
+                  <span class="fw-bold text-success">62%</span>
+                </div>
+                <div class="progress custom-progress">
+                  <div class="progress-bar bg-teal" style="width: 62%;"></div>
+                </div>
+              </div>
+
+              <!-- Storage Capacity Used -->
+              <div class="load-item mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1 fs-8">
+                  <span>Storage Capacity Used <span class="tag-meta text-muted">Infrastructure</span></span>
+                  <span class="fw-bold text-danger">85%</span>
+                </div>
+                <div class="progress custom-progress">
+                  <div class="progress-bar bg-danger" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <!-- Active Workforce Allocation -->
+              <div class="load-item mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1 fs-8">
+                  <span>Active Workforce Allocation <span class="tag-meta text-muted">HR</span></span>
+                  <span class="fw-bold text-danger">91%</span>
+                </div>
+                <div class="progress custom-progress">
+                  <div class="progress-bar bg-danger" style="width: 91%;"></div>
+                </div>
+              </div>
+
+              <!-- Equipment Utilization -->
+              <div class="load-item mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1 fs-8">
+                  <span>Equipment Utilization <span class="tag-meta text-muted">Operations</span></span>
+                  <span class="fw-bold text-success">54%</span>
+                </div>
+                <div class="progress custom-progress">
+                  <div class="progress-bar bg-success" style="width: 54%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progress Load Legend -->
+            <div class="d-flex justify-content-around mt-4 pt-2 border-top border-light fs-9 text-muted">
+              <span><span class="legend-dot normal"></span> Normal < 70%</span>
+              <span><span class="legend-dot warning"></span> Warning 70-84%</span>
+              <span><span class="legend-dot critical"></span> Critical >= 85%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expandable User Creation and Audit Logs (Bottom Section) -->
+      <section class="row g-4 mb-4">
+        <!-- Invite/Create User -->
+        <div class="col-md-6">
+          <div class="card viz-card border-0 shadow-sm p-4">
+            <h5 class="viz-title mb-4"><i class="bi bi-person-plus-fill text-success me-2"></i>Register User Profile</h5>
+            <form (ngSubmit)="onInviteUser()" #inviteForm="ngForm">
+              <div *ngIf="inviteSuccessMessage" class="alert alert-success p-2 mb-3 fs-8" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>{{ inviteSuccessMessage }}
+              </div>
+              <div *ngIf="inviteErrorMessage" class="alert alert-danger p-2 mb-3 fs-8" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ inviteErrorMessage }}
+              </div>
+
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label fs-9 text-uppercase text-muted fw-bold">First Name</label>
+                  <input type="text" class="form-control form-control-sm light-input" name="inviteFirstName" [(ngModel)]="inviteFirstName" required placeholder="John">
+                </div>
+                <div class="col-6 mb-3">
+                  <label class="form-label fs-9 text-uppercase text-muted fw-bold">Last Name</label>
+                  <input type="text" class="form-control form-control-sm light-input" name="inviteLastName" [(ngModel)]="inviteLastName" required placeholder="Doe">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label fs-9 text-uppercase text-muted fw-bold">Email</label>
+                <input type="email" class="form-control form-control-sm light-input" name="inviteEmail" [(ngModel)]="inviteEmail" required placeholder="name&#64;buildtrack.com">
+              </div>
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label fs-9 text-uppercase text-muted fw-bold">Password</label>
+                  <input type="password" class="form-control form-control-sm light-input" name="invitePassword" [(ngModel)]="invitePassword" required placeholder="••••••••">
+                </div>
+                <div class="col-6 mb-4">
+                  <label class="form-label fs-9 text-uppercase text-muted fw-bold">Assigned Role</label>
+                  <select class="form-select form-select-sm light-input" name="inviteRole" [(ngModel)]="inviteRole" required>
+                    <option value="Administrator">Administrator</option>
+                    <option value="Project_Manager">Project Manager</option>
+                    <option value="Site_Engineer">Site Engineer</option>
+                    <option value="Contractor">Contractor</option>
+                    <option value="Client">Client</option>
+                    <option value="Worker">Worker</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-green w-100 py-2 fs-8 fw-bold text-uppercase" [disabled]="inviteLoading || !inviteForm.form.valid">
+                Add User to Portal
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Audit logs -->
+        <div class="col-md-6">
+          <div class="card viz-card border-0 shadow-sm p-4 h-100">
+            <h5 class="viz-title mb-4"><i class="bi bi-journal-code text-success me-2"></i>Audit Logs</h5>
+            <div class="table-responsive">
+              <table class="table table-light-custom align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col" class="fs-9 text-muted text-uppercase">Time</th>
+                    <th scope="col" class="fs-9 text-muted text-uppercase">Action</th>
+                    <th scope="col" class="fs-9 text-muted text-uppercase">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let log of verificationResponse?.data?.recentLogs">
+                    <td class="fs-9">{{ log.timestamp | date:'HH:mm:ss' }}</td>
+                    <td class="fs-8 fw-semibold">{{ log.action }} - {{ log.details }}</td>
+                    <td><span class="badge bg-success-trans text-success">Verified</span></td>
+                  </tr>
+                  <tr *ngIf="!verificationResponse?.data?.recentLogs">
+                    <td colspan="3" class="text-center text-muted py-4 fs-8">No recent logs loaded.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Collapsible Developer Debug Terminal -->
+      <section class="mt-4">
+        <div class="accordion border-0 shadow-sm" id="rbacAccordion">
+          <div class="accordion-item border-0 viz-card">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed bg-transparent border-0 text-white shadow-none fs-8" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <i class="bi bi-terminal-fill text-success me-2"></i><strong>Developer Console: JWT & Interceptor RBAC Check</strong>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#rbacAccordion">
+              <div class="accordion-body p-3 bg-dark-terminal rounded-bottom text-white">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="fs-8 text-muted">active-interceptor-handshake.log</span>
+                  <button class="btn btn-sm btn-outline-success fs-9" (click)="testRbacEndpoint()">Test Gateway</button>
+                </div>
+                <pre class="terminal-json fs-9 mb-0 text-success bg-transparent border-0">{{ verificationResponse | json }}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>

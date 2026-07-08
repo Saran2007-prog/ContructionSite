@@ -1,0 +1,136 @@
+<div class="dashboard-container">
+  <!-- Top Navbar Header (Unified Light Theme) -->
+  <header class="navbar-header d-flex justify-content-between align-items-center px-5 py-3">
+    <div>
+      <h2 class="welcome-title mb-0">Worker Center</h2>
+      <span class="text-muted fs-8">Shift schedules and attendance logs</span>
+    </div>
+    
+    <div class="navbar-actions d-flex align-items-center gap-3">
+      <span class="text-muted fs-8">Jul 7, 2026</span>
+      
+      <div class="profile-dropdown d-flex align-items-center gap-2 cursor-pointer" (click)="logout()">
+        <div class="avatar-box d-flex align-items-center justify-content-center">
+          W
+        </div>
+        <div class="profile-meta d-none d-md-block">
+          <span class="profile-user-name d-block mb-0">{{ currentUser?.profile?.firstName }}</span>
+          <span class="profile-user-role d-block text-muted fs-9">Worker</span>
+        </div>
+        <i class="bi bi-chevron-down fs-9 text-muted ms-1"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-body p-5">
+    
+    <!-- Stats Row -->
+    <section class="row g-4 mb-5">
+      <!-- Today's Shift -->
+      <div class="col-md-4">
+        <div class="card stat-card border-0 shadow-sm card-border-blue p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Today's Shift</span>
+              <h2 class="stat-number mb-1">8 Hours</h2>
+            </div>
+            <div class="stat-icon-wrapper blue-icon">
+              <i class="bi bi-clock-history"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attendance Rate -->
+      <div class="col-md-4">
+        <div class="card stat-card border-0 shadow-sm card-border-green p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Attendance Rate</span>
+              <h2 class="stat-number mb-1">94.7%</h2>
+            </div>
+            <div class="stat-icon-wrapper green-icon">
+              <i class="bi bi-person-check-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Safety Clearance -->
+      <div class="col-md-4">
+        <div class="card stat-card border-0 shadow-sm card-border-yellow p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Safety Clearance</span>
+              <h2 class="stat-number mb-1">Passed</h2>
+            </div>
+            <div class="stat-icon-wrapper yellow-icon">
+              <i class="bi bi-check-circle-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout Grid -->
+    <div class="row g-5">
+      <!-- Left Column: Shifts and Time Card -->
+      <div class="col-lg-7">
+        <div class="card viz-card border-0 shadow-sm p-4 mb-4">
+          <h5 class="viz-title mb-4">Shift Schedule</h5>
+          <div class="shift-list">
+            <div *ngFor="let shift of verificationResponse?.data?.shiftSchedule" class="p-3 mb-3 rounded bg-light border fs-8">
+              <div class="d-flex justify-content-between mb-2 text-muted fs-9">
+                <span>Date: {{ shift.date }}</span>
+                <span class="badge bg-success-trans text-success fs-9">Scheduled</span>
+              </div>
+              <h6 class="fw-bold mb-1 fs-8">{{ shift.shift }}</h6>
+              <p class="mb-0 text-muted fs-9"><i class="bi bi-geo-alt me-1 text-danger"></i>{{ shift.location }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card viz-card border-0 shadow-sm p-4">
+          <h5 class="viz-title mb-4">Time Card Metrics</h5>
+          <div *ngIf="verificationResponse?.data?.attendanceStatus as att" class="d-flex justify-content-around py-2">
+            <div class="text-center">
+              <span class="d-block text-muted fs-8">Present Days</span>
+              <span class="h4 text-success fw-bold">{{ att.presentDays }}</span>
+            </div>
+            <div class="text-center">
+              <span class="d-block text-muted fs-8">Absent Days</span>
+              <span class="h4 text-danger fw-bold">{{ att.absentDays }}</span>
+            </div>
+            <div class="text-center">
+              <span class="d-block text-muted fs-8">Leave Days</span>
+              <span class="h4 text-info fw-bold">{{ att.leaveDays }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Verification Console -->
+      <div class="col-lg-5">
+        <div class="accordion border-0 shadow-sm" id="rbacAccordion">
+          <div class="accordion-item border-0 viz-card">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed bg-transparent border-0 text-dark shadow-none fs-8" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <i class="bi bi-terminal-fill text-success me-2"></i><strong>Developer Console: JWT & Interceptor RBAC Check</strong>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#rbacAccordion">
+              <div class="accordion-body p-3 bg-dark text-white rounded-bottom">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="fs-8 text-muted">active-interceptor-handshake.log</span>
+                  <button class="btn btn-sm btn-outline-success fs-9" (click)="testRbacEndpoint()">Test Gateway</button>
+                </div>
+                <pre class="terminal-json fs-9 mb-0 text-success bg-transparent border-0">{{ verificationResponse | json }}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

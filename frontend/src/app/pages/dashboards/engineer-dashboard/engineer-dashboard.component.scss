@@ -1,0 +1,245 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #1e293b;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* -------------------------------------------------------------
+ * NAVBAR HEADER
+ * ------------------------------------------------------------- */
+.navbar-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.welcome-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.notification-bell {
+  width: 36px;
+  height: 36px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+
+  .notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.avatar-box {
+  width: 36px;
+  height: 36px;
+  background: #10b981;
+  color: #ffffff;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.profile-user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* -------------------------------------------------------------
+ * STATS CARDS (COLORED LEFT BORDERS)
+ * ------------------------------------------------------------- */
+.stat-card {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+
+  .stat-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-number {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  &.card-border-blue {
+    border-left: 4px solid #3b82f6 !important;
+  }
+
+  &.card-border-green {
+    border-left: 4px solid #10b981 !important;
+  }
+
+  &.card-border-red {
+    border-left: 4px solid #ef4444 !important;
+  }
+
+  &.card-border-yellow {
+    border-left: 4px solid #f59e0b !important;
+  }
+}
+
+.stat-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+
+  &.blue-icon {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+  }
+
+  &.green-icon {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  &.red-icon {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+
+  &.yellow-icon {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+}
+
+/* -------------------------------------------------------------
+ * VIZ CARDS & TABLES
+ * ------------------------------------------------------------- */
+.viz-card {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+}
+
+.viz-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.btn-outline-primary-green {
+  background: transparent;
+  color: #00b050;
+  border: 1px solid #00b050;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 176, 80, 0.05);
+    border-color: #00d661;
+    color: #00d661;
+  }
+}
+
+.table-light-custom {
+  --bs-table-bg: transparent;
+  color: #1e293b;
+  
+  th {
+    border-bottom: 1px solid #e2e8f0 !important;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 14px 8px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+}
+
+.badge-pill {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+
+  &.bg-success-solid {
+    background: #10b981;
+    color: #ffffff;
+  }
+
+  &.bg-warning-solid {
+    background: #f59e0b;
+    color: #ffffff;
+  }
+
+  &.bg-danger-solid {
+    background: #ef4444;
+    color: #ffffff;
+  }
+}
+
+.progress {
+  background-color: #f1f5f9;
+  border-radius: 4px;
+}
+
+.text-green {
+  color: #00b050 !important;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------
+ * MATERIAL STOCKS PROGRESS BARS
+ * ------------------------------------------------------------- */
+.stock-item {
+  .progress {
+    background-color: #f1f5f9;
+    border-radius: 10px;
+  }
+}
+
+/* -------------------------------------------------------------
+ * DEVELOPER LOGGER
+ * ------------------------------------------------------------- */
+.terminal-json {
+  font-family: 'Fira Code', monospace;
+  overflow-x: auto;
+  max-height: 200px;
+}
+
+.fs-9 {
+  font-size: 0.72rem;
+}
+.fs-10 {
+  font-size: 0.65rem;
+}
+.fs-8 {
+  font-size: 0.8rem;
+}
+.cursor-pointer {
+  cursor: pointer;
+}

@@ -1,0 +1,275 @@
+<div class="dashboard-container">
+  <!-- Top Navbar Header (Unified Light Theme) -->
+  <header class="navbar-header d-flex justify-content-between align-items-center px-5 py-3">
+    <div>
+      <h2 class="welcome-title mb-0">Contractor Dashboard</h2>
+      <span class="text-muted fs-8 text-uppercase fw-bold"><i class="bi bi-tools me-1 text-success"></i>Apex Electrical - Subcontractor</span>
+    </div>
+    
+    <div class="navbar-actions d-flex align-items-center gap-3">
+      <span class="text-muted fs-8">Tue, Jul 7, 2026</span>
+      
+      <div class="notification-bell position-relative">
+        <i class="bi bi-bell-fill fs-5"></i>
+        <span class="notification-badge">3</span>
+      </div>
+      
+      <div class="profile-dropdown d-flex align-items-center gap-2 cursor-pointer" (click)="logout()">
+        <div class="avatar-box d-flex align-items-center justify-content-center">
+          D
+        </div>
+        <div class="profile-meta d-none d-md-block">
+          <span class="profile-user-name d-block mb-0">Deena</span>
+          <span class="profile-user-role d-block text-muted fs-9">Contractor</span>
+        </div>
+        <i class="bi bi-chevron-down fs-9 text-muted ms-1"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-body p-5">
+    
+    <!-- Stats Row -->
+    <section class="row g-4 mb-5">
+      <!-- Active Tasks -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm card-border-green p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Active Tasks</span>
+              <h2 class="stat-number mb-1">11</h2>
+              <span class="fs-9 text-success"><i class="bi bi-check-circle-fill me-1"></i>Running Smoothly</span>
+            </div>
+            <div class="stat-icon-wrapper green-icon">
+              <i class="bi bi-list-task"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Invoices -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm card-border-yellow p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Pending Invoices</span>
+              <h2 class="stat-number mb-1">$14,500</h2>
+              <span class="fs-9 text-warning">Awaiting Client Review</span>
+            </div>
+            <div class="stat-icon-wrapper yellow-icon">
+              <i class="bi bi-file-earmark-text-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cleared Payments -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm card-border-green p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Cleared Payments</span>
+              <h2 class="stat-number mb-1">$32,000</h2>
+              <span class="fs-9 text-success"><i class="bi bi-patch-check-fill me-1"></i>Received Successfully</span>
+            </div>
+            <div class="stat-icon-wrapper green-icon">
+              <i class="bi bi-wallet2"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open RFIs/Blockers -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm card-border-red p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Open RFIs/Blockers</span>
+              <h2 class="stat-number mb-1 text-danger">2</h2>
+              <span class="fs-9 text-danger">Requiring Site Resolution</span>
+            </div>
+            <div class="stat-icon-wrapper red-icon">
+              <i class="bi bi-exclamation-octagon-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout Grid -->
+    <div class="row g-5">
+      <!-- Left Column: Assigned Deliverables -->
+      <div class="col-lg-7">
+        <div class="card viz-card border-0 shadow-sm p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h5 class="viz-title mb-0">My Assigned Deliverables</h5>
+              <span class="text-muted fs-8">Contracts, tasks, and electrical installations</span>
+            </div>
+            <button class="btn btn-sm btn-outline-primary-green px-3"><i class="bi bi-app-indicator me-1"></i>Standalone App Scope</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-light-custom align-middle">
+              <thead>
+                <tr>
+                  <th scope="col" class="fs-9 text-muted">Task Name</th>
+                  <th scope="col" class="fs-9 text-muted">Location</th>
+                  <th scope="col" class="fs-9 text-muted">Deadline</th>
+                  <th scope="col" class="fs-9 text-muted">Status / Progress</th>
+                  <th scope="col" class="fs-9 text-muted">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-semibold fs-8">Floor 3 Wiring</td>
+                  <td class="text-muted fs-8"><i class="bi bi-geo-alt me-1"></i>Building A - Level 3</td>
+                  <td class="fs-8 text-muted"><i class="bi bi-calendar3 me-1"></i>2026-07-10</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-info" style="width: 75%;"></div>
+                      </div>
+                      <span class="fs-9 text-info fw-bold">In Progress (75%)</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-green-sm fs-9"><i class="bi bi-cloud-arrow-up me-1"></i>Update Progress</button></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">Main Panel Installation</td>
+                  <td class="text-muted fs-8"><i class="bi bi-geo-alt me-1"></i>Substation B</td>
+                  <td class="fs-8 text-muted"><i class="bi bi-calendar3 me-1"></i>2026-07-12</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-info" style="width: 40%;"></div>
+                      </div>
+                      <span class="fs-9 text-info fw-bold">In Progress (40%)</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-green-sm fs-9"><i class="bi bi-cloud-arrow-up me-1"></i>Update Progress</button></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">Conduit Laying</td>
+                  <td class="text-muted fs-8"><i class="bi bi-geo-alt me-1"></i>Parking Zone C</td>
+                  <td class="fs-8 text-muted"><i class="bi bi-calendar3 me-1"></i>2026-07-08</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-warning" style="width: 90%;"></div>
+                      </div>
+                      <span class="fs-9 text-warning fw-bold">In Progress (90%)</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-green-sm fs-9"><i class="bi bi-cloud-arrow-up me-1"></i>Update Progress</button></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">Lighting Fixtures</td>
+                  <td class="text-muted fs-8"><i class="bi bi-geo-alt me-1"></i>Building A - Lobby</td>
+                  <td class="fs-8 text-muted"><i class="bi bi-calendar3 me-1"></i>2026-07-20</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-info" style="width: 10%;"></div>
+                      </div>
+                      <span class="fs-9 text-info fw-bold">In Progress (10%)</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-green-sm fs-9"><i class="bi bi-cloud-arrow-up me-1"></i>Update Progress</button></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">Grounding System</td>
+                  <td class="text-muted fs-8"><i class="bi bi-geo-alt me-1"></i>Exterior Perimeter</td>
+                  <td class="fs-8 text-muted"><i class="bi bi-calendar3 me-1"></i>2026-07-03</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-success" style="width: 100%;"></div>
+                      </div>
+                      <span class="fs-9 text-success fw-bold">Completed (100%)</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-green-sm fs-9"><i class="bi bi-cloud-arrow-up me-1"></i>Update Progress</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Invoice Status -->
+      <div class="col-lg-5">
+        <div class="card viz-card border-0 shadow-sm p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h5 class="viz-title mb-0">Invoice Status</h5>
+              <span class="text-muted fs-8">Billing cycles & paid progress claims</span>
+            </div>
+            <button class="btn btn-sm btn-primary-green px-3"><i class="bi bi-plus-lg me-1"></i>Submit Invoice</button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-light-custom align-middle">
+              <thead>
+                <tr>
+                  <th scope="col" class="fs-9 text-muted">Invoice #</th>
+                  <th scope="col" class="fs-9 text-muted">Amount</th>
+                  <th scope="col" class="fs-9 text-muted">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-semibold fs-8">INV-2026-082</td>
+                  <td class="fs-8 fw-semibold">$9,300.00</td>
+                  <td><span class="badge badge-pill badge-outline-warning">Pending Review</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">INV-2026-083</td>
+                  <td class="fs-8 fw-semibold">$5,200.00</td>
+                  <td><span class="badge badge-pill badge-outline-warning">Pending Review</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">INV-2026-081</td>
+                  <td class="fs-8 fw-semibold">$5,200.00</td>
+                  <td><span class="badge badge-pill bg-success-solid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">INV-2026-080</td>
+                  <td class="fs-8 fw-semibold">$12,300.00</td>
+                  <td><span class="badge badge-pill bg-success-solid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold fs-8">INV-2026-079</td>
+                  <td class="fs-8 fw-semibold">$14,500.00</td>
+                  <td><span class="badge badge-pill bg-success-solid">Paid</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer JWT Console (Bottom) -->
+    <section class="mt-5">
+      <div class="accordion border-0 shadow-sm" id="rbacAccordion">
+        <div class="accordion-item border-0 viz-card">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed bg-transparent border-0 text-dark shadow-none fs-8" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <i class="bi bi-terminal-fill text-success me-2"></i><strong>Developer Console: JWT & Interceptor RBAC Check</strong>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#rbacAccordion">
+            <div class="accordion-body p-3 bg-dark text-white rounded-bottom">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fs-8 text-muted">active-interceptor-handshake.log</span>
+                <button class="btn btn-sm btn-outline-success fs-9" (click)="testRbacEndpoint()">Test Gateway</button>
+              </div>
+              <pre class="terminal-json fs-9 mb-0 text-success bg-transparent border-0">{{ verificationResponse | json }}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

@@ -1,0 +1,305 @@
+<div class="dashboard-container">
+  <!-- Top Navbar Header (Unified Light Theme) -->
+  <header class="navbar-header d-flex justify-content-between align-items-center px-5 py-3">
+    <div>
+      <h2 class="welcome-title mb-0">Project Manager Dashboard</h2>
+      <span class="text-muted fs-8">[Alpha Tower Complex]</span>
+    </div>
+    
+    <div class="navbar-actions d-flex align-items-center gap-3">
+      <div class="search-box position-relative">
+        <i class="bi bi-search search-icon"></i>
+        <input type="text" class="form-control form-control-sm" placeholder="Search projects, milestones, or members...">
+      </div>
+      
+      <div class="notification-bell position-relative">
+        <i class="bi bi-bell-fill fs-5"></i>
+        <span class="notification-badge">2</span>
+      </div>
+      
+      <div class="profile-dropdown d-flex align-items-center gap-2 cursor-pointer" (click)="logout()">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Samantha" class="profile-photo">
+        <div class="profile-meta d-none d-md-block">
+          <span class="profile-user-name d-block mb-0">Samantha Green</span>
+          <span class="profile-user-role d-block text-muted fs-9">Project Manager</span>
+        </div>
+        <i class="bi bi-chevron-down fs-9 text-muted ms-1"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-body p-5">
+    
+    <!-- Stats Row -->
+    <section class="row g-4 mb-5">
+      <!-- Workforce -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Total Assigned Workforce</span>
+              <h2 class="stat-number mb-0">103</h2>
+            </div>
+            <div class="stat-icon-wrapper workforce-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Projects -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm p-3 cursor-pointer">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Active Projects Filter</span>
+              <h2 class="stat-number mb-0">2</h2>
+              <span class="fs-9 text-muted">Click to filter</span>
+            </div>
+            <div class="stat-icon-wrapper project-icon">
+              <i class="bi bi-folder-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Projected vs Actual Budget</span>
+              <h2 class="stat-number mb-0">$1.2M</h2>
+            </div>
+            <div class="stat-icon-wrapper budget-icon">
+              <i class="bi bi-bar-chart-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delayed Milestones -->
+      <div class="col-md-3">
+        <div class="card stat-card border-0 shadow-sm p-3 cursor-pointer">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <span class="stat-title text-muted text-uppercase d-block mb-2">Delayed Milestones Filter</span>
+              <h2 class="stat-number mb-0 text-danger">3</h2>
+              <span class="fs-9 text-muted">Click to filter</span>
+            </div>
+            <div class="stat-icon-wrapper alert-icon">
+              <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout Grid -->
+    <div class="row g-5">
+      <!-- Left Column: Portfolio and Milestones -->
+      <div class="col-lg-7">
+        <!-- Assigned Projects Card -->
+        <div class="card viz-card border-0 shadow-sm p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="viz-title mb-0">Assigned Projects Overview</h5>
+            <button class="btn btn-sm btn-primary-green px-3"><i class="bi bi-plus-lg me-1"></i>New Project</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-light-custom align-middle">
+              <thead>
+                <tr>
+                  <th scope="col" class="fs-9 text-muted">Title</th>
+                  <th scope="col" class="fs-9 text-muted">Project</th>
+                  <th scope="col" class="fs-9 text-muted">Status</th>
+                  <th scope="col" class="fs-9 text-muted">Assigned</th>
+                  <th scope="col" class="fs-9 text-muted">Progress</th>
+                  <th scope="col" class="fs-9 text-muted">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-semibold">Foundation Check</td>
+                  <td class="text-muted">Alpha Tower</td>
+                  <td><span class="badge badge-pill bg-success-solid">Ongoing</span></td>
+                  <td>45</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-success" style="width: 65%;"></div>
+                      </div>
+                      <span class="fs-9 text-muted">65%</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-action-delete btn-sm text-danger"><i class="bi bi-trash3"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">Electrical Wiring</td>
+                  <td class="text-muted">Alpha Tower</td>
+                  <td><span class="badge badge-pill bg-warning-solid">Ongoing</span></td>
+                  <td>12</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-warning" style="width: 10%;"></div>
+                      </div>
+                      <span class="fs-9 text-muted">10%</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-action-delete btn-sm text-danger"><i class="bi bi-trash3"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">HVAC Installation</td>
+                  <td class="text-muted">Beta Plaza</td>
+                  <td><span class="badge badge-pill bg-success-solid">Ongoing</span></td>
+                  <td>28</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-success" style="width: 85%;"></div>
+                      </div>
+                      <span class="fs-9 text-muted">85%</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-action-delete btn-sm text-danger"><i class="bi bi-trash3"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">Interior Finishing</td>
+                  <td class="text-muted">Beta Plaza</td>
+                  <td><span class="badge badge-pill bg-danger-solid">Delayed</span></td>
+                  <td>18</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="progress flex-grow-1" style="height: 5px;">
+                        <div class="progress-bar bg-danger" style="width: 40%;"></div>
+                      </div>
+                      <span class="fs-9 text-muted">40%</span>
+                    </div>
+                  </td>
+                  <td><button class="btn btn-action-delete btn-sm text-danger"><i class="bi bi-trash3"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Milestones list -->
+        <div class="card viz-card border-0 shadow-sm p-4">
+          <h5 class="viz-title mb-4">Upcoming Critical Milestones</h5>
+          <div class="timeline-simple">
+            <div class="timeline-step d-flex gap-3 mb-3 pb-2 border-bottom border-light">
+              <div class="step-badge text-success"><i class="bi bi-check-circle-fill"></i></div>
+              <div>
+                <h6 class="mb-1 fw-bold fs-8">Concrete Structural Frame Curing</h6>
+                <p class="mb-0 text-muted fs-9">Alpha Tower • Target Date: July 12, 2026</p>
+              </div>
+            </div>
+            <div class="timeline-step d-flex gap-3 mb-3 pb-2 border-bottom border-light">
+              <div class="step-badge text-warning"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <h6 class="mb-1 fw-bold fs-8">Substation Wiring Handover Inspection</h6>
+                <p class="mb-0 text-muted fs-9">APEX Electrical Sub • Target Date: July 18, 2026</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Key Team Members -->
+      <div class="col-lg-5">
+        <div class="card viz-card border-0 shadow-sm p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="viz-title mb-0">Key Project Team Members</h5>
+            <button class="btn btn-sm btn-outline-primary-green"><i class="bi bi-person-plus me-1"></i>Add Member</button>
+          </div>
+
+          <div class="team-list d-flex flex-column gap-3">
+            <!-- Member 1 -->
+            <div class="team-member-item d-flex align-items-center justify-content-between p-2 rounded-3">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Samantha" class="member-avatar">
+                <div>
+                  <h6 class="mb-0 fw-bold fs-8">Samantha Green</h6>
+                  <span class="badge bg-light text-dark fs-9">Project Manager</span>
+                </div>
+              </div>
+              <div class="member-contacts fs-9 text-end">
+                <span class="d-block text-muted">sam.green&#64;buildtrack.com</span>
+                <span class="d-block text-muted">+1 555-0198</span>
+              </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="team-member-item d-flex align-items-center justify-content-between p-2 rounded-3">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Marcus" class="member-avatar">
+                <div>
+                  <h6 class="mb-0 fw-bold fs-8">Marcus Johnson</h6>
+                  <span class="badge bg-light text-dark fs-9">Lead Engineer</span>
+                </div>
+              </div>
+              <div class="member-contacts fs-9 text-end">
+                <span class="d-block text-muted">marcus.j&#64;buildtrack.com</span>
+                <span class="d-block text-muted">+1 555-0211</span>
+              </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="team-member-item d-flex align-items-center justify-content-between p-2 rounded-3">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="Elena" class="member-avatar">
+                <div>
+                  <h6 class="mb-0 fw-bold fs-8">Elena Rodriguez</h6>
+                  <span class="badge bg-light text-dark fs-9">Foreman</span>
+                </div>
+              </div>
+              <div class="member-contacts fs-9 text-end">
+                <span class="d-block text-muted">elena.r&#64;buildtrack.com</span>
+                <span class="d-block text-muted">+1 555-0344</span>
+              </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="team-member-item d-flex align-items-center justify-content-between p-2 rounded-3">
+              <div class="d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=80&q=80" alt="David" class="member-avatar">
+                <div>
+                  <h6 class="mb-0 fw-bold fs-8">David Chen</h6>
+                  <span class="badge bg-light text-dark fs-9">Architect</span>
+                </div>
+              </div>
+              <div class="member-contacts fs-9 text-end">
+                <span class="d-block text-muted">david.c&#64;buildtrack.com</span>
+                <span class="d-block text-muted">+1 555-0100</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer JWT Console (Bottom) -->
+    <section class="mt-5">
+      <div class="accordion border-0 shadow-sm" id="rbacAccordion">
+        <div class="accordion-item border-0 viz-card">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed bg-transparent border-0 text-dark shadow-none fs-8" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <i class="bi bi-terminal-fill text-success me-2"></i><strong>Developer Console: JWT & Interceptor RBAC Check</strong>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#rbacAccordion">
+            <div class="accordion-body p-3 bg-dark text-white rounded-bottom">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fs-8 text-muted">active-interceptor-handshake.log</span>
+                <button class="btn btn-sm btn-outline-success fs-9" (click)="testRbacEndpoint()">Test Gateway</button>
+              </div>
+              <pre class="terminal-json fs-9 mb-0 text-success bg-transparent border-0">{{ verificationResponse | json }}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
