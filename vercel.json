@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "services": {
+    "frontend": {
+      "root": "frontend/"
+    }
+  },
+  "experimentalServices": {
+    "frontend": {
+      "entrypoint": "frontend",
+      "routePrefix": "/"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "frontend/$1"
+    }
+  ]
+}
