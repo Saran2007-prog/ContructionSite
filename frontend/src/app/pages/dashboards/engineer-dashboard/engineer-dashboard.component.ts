@@ -32,7 +32,7 @@ export class EngineerDashboardComponent implements OnInit {
 
   testRbacEndpoint() {
     this.verificationStatus = 'Pending';
-    this.http.get('http://localhost:3000/api/dashboard/engineer').subscribe({
+    this.http.get(`${this.authService.getApiUrl()}/dashboard/engineer`).subscribe({
       next: (res: any) => {
         this.verificationStatus = 'Success';
         this.verificationResponse = res;

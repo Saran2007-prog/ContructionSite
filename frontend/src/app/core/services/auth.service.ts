@@ -25,7 +25,15 @@ export interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api';
+  // Change this to your hosted backend URL in production (e.g. 'https://contruction-site-backend.onrender.com/api')
+  private apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000/api'
+    : 'https://contruction-site-backend.onrender.com/api';
+
+  public getApiUrl(): string {
+    return this.apiUrl;
+  }
+
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 

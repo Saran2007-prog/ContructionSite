@@ -45,7 +45,7 @@ export class AdminDashboardComponent implements OnInit {
 
   testRbacEndpoint() {
     this.verificationStatus = 'Pending';
-    this.http.get('http://localhost:3000/api/dashboard/admin').subscribe({
+    this.http.get(`${this.authService.getApiUrl()}/dashboard/admin`).subscribe({
       next: (res: any) => {
         this.verificationStatus = 'Success';
         this.verificationResponse = res;

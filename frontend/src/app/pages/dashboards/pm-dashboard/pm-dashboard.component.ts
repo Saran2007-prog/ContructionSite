@@ -32,7 +32,7 @@ export class PMDashboardComponent implements OnInit {
 
   testRbacEndpoint() {
     this.verificationStatus = 'Pending';
-    this.http.get('http://localhost:3000/api/dashboard/pm').subscribe({
+    this.http.get(`${this.authService.getApiUrl()}/dashboard/pm`).subscribe({
       next: (res: any) => {
         this.verificationStatus = 'Success';
         this.verificationResponse = res;
